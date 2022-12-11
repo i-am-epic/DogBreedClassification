@@ -72,26 +72,27 @@ def adjust_results4_isadog(results_dic, dogfile):
         line = dog.readline()
         while line != "":
             line = line.rstrip('\n').strip()
-            
-           
+            #adding dognames_dic from dogfile
             if(line not in dognames_dic):
                 dognames_dic[line] = '1'
             line = dog.readline()
     for key in results_dic:
         if(results_dic[key][0] in dognames_dic):
             if(results_dic[key][1] in dognames_dic):
-               
-            
+               #if both image and classification label  are in dogfile
                 results_dic[key].extend((1,1))
             else:
+                #only if image label in dogfile
                 results_dic[key].extend((1,0))
                
                
         else:
+            #only if classification label in dogfile
             if(results_dic[key][1] in dognames_dic):
                
-            
                 results_dic[key].extend((0,1))
+
+            #if both the labels are not in dogfile
             else:
                 results_dic[key].extend((0,0))
             
