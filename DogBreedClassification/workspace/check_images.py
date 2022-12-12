@@ -25,6 +25,7 @@
 
 # Imports python modules
 from time import time, sleep
+from PIL import ImageFile
 
 # Imports print functions that check the lab
 from print_functions_for_lab_checks import *
@@ -36,6 +37,7 @@ from classify_images import classify_images
 from adjust_results4_isadog import adjust_results4_isadog
 from calculates_results_stats import calculates_results_stats
 from print_results import print_results
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 # Main program function defined below
 
